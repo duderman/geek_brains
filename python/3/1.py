@@ -1,3 +1,5 @@
+from utils import ask_int
+
 def div(a, b):
   """
   Divides a by b
@@ -5,16 +7,8 @@ def div(a, b):
   return a / b
 
 
-def ask(what):
-  while True:
-    try:
-      return int(input(f"{what}: "))
-    except ValueError:
-      print("Not a number")
-
-
-a = ask('a')
-b = ask('b')
+a = ask_int('a')
+b = ask_int('b')
 
 try:
   result = div(a, b)
