@@ -175,3 +175,4 @@ dmypy.json
 # End of https://www.toptal.com/developers/gitignore/api/python,macos
 
 echo.txt
+new_numbers.txt
