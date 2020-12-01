@@ -173,3 +173,8 @@ dmypy.json
 .prof
 
 # End of https://www.toptal.com/developers/gitignore/api/python,macos
+
+echo.txt
+new_numbers.txt
+randoms.txt
+companies_success.json
