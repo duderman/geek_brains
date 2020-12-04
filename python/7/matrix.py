@@ -31,8 +31,11 @@ class Matrix():
     return "\n".join(result)
 
   def __add__(self, other):
-    result = []
-    for n in range(len(self.values)):
-      result.append([self.values[n][m] + other.values[n][m]
-                     for m in range(len(self.values[n]))])
-    return Matrix(result)
+    try:
+      result = []
+      for n in range(len(self.values)):
+        result.append([self.values[n][m] + other.values[n][m]
+                      for m in range(len(self.values[n]))])
+      return Matrix(result)
+    except IndexError:
+      raise WrongSize()

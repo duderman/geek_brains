@@ -32,5 +32,14 @@ class TestMatrix(unittest.TestCase):
     matrix3 = matrix1 + matrix2
     self.assertEqual(matrix3.values, [[2, 4, 6], [6, 4, 2]])
 
+  def test_add_with_wrong_sizes(self):
+    """
+    Add should fail when matrixes have different sizes
+    """
+    matrix1 = Matrix([[1, 2, 3], [3, 2, 1]])
+    matrix2 = Matrix([[1, 2], [3, 2]])
+    def add(): return matrix1 + matrix2
+    self.assertRaises(WrongSize, add)
+
 if __name__ == '__main__':
     unittest.main()
