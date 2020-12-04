@@ -23,6 +23,14 @@ class TestMatrix(unittest.TestCase):
     """
     self.assertRaises(WrongSize, Matrix, [[1], [2, 3]])
 
+  def test_add(self):
+    """
+    Add one matrix to another
+    """
+    matrix1 = Matrix([[1, 2, 3], [3, 2, 1]])
+    matrix2 = Matrix([[1, 2, 3], [3, 2, 1]])
+    matrix3 = matrix1 + matrix2
+    self.assertEqual(matrix3.values, [[2, 4, 6], [6, 4, 2]])
 
 if __name__ == '__main__':
     unittest.main()
