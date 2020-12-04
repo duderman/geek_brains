@@ -1,5 +1,5 @@
 import unittest
-from matrix import Matrix
+from matrix import Matrix, WrongSize
 
 
 class TestMatrix(unittest.TestCase):
@@ -16,6 +16,12 @@ class TestMatrix(unittest.TestCase):
     """
     matrix = Matrix([])
     self.assertEqual(str(matrix), '')
+
+  def test_wrong_size(self):
+    """
+    Init fails when matrix has wrong sizes
+    """
+    self.assertRaises(WrongSize, Matrix, [[1], [2, 3]])
 
 
 if __name__ == '__main__':
