@@ -1,12 +1,34 @@
-# Начните работу над проектом «Склад оргтехники».
+# 4. Начните работу над проектом «Склад оргтехники».
 #
 # Создайте класс, описывающий склад. А также класс «Оргтехника», который будет базовым для классов-наследников.
 # Эти классы — конкретные типы оргтехники (принтер, сканер, ксерокс).
 # В базовом классе определить параметры, общие для приведенных типов.
 # В классах-наследниках реализовать параметры, уникальные для каждого типа оргтехники.
 
-class Warehouse():
+# 5. Разработать методы, отвечающие за приём оргтехники на склад и передачу в определенное подразделение компании.
+# Для хранения данных о наименовании и количестве единиц оргтехники, а также других данных,
+# можно использовать любую подходящую структуру, например словарь.
+
+class NoUnitsLeft(Exception):
   pass
+
+class Warehouse():
+  def __init__(self):
+    self.units = {}
+
+  def add_unit(self, unit):
+    unit_type = type(unit)
+    self.units.setdefault(unit_type, [])
+    self.units[unit_type].append(unit)
+
+  def give_unit_of_type(self, unit_type):
+    if self._is_all_gone(unit_type):
+      raise NoUnitsLeft(f"No {unit_type} units left")
+
+    return self.units[unit_type].pop()
+
+  def _is_all_gone(self, unit_type):
+    return not unit_type in self.units.keys() or len(self.units[unit_type]) == 0
 
 
 class Unit():
